@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Kanyaphak 💗</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffd6e7, #fff0f6, #f9c5dc);
+        color: #8b4565;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        background: rgba(255,255,255,0.88);
+        padding: 35px 25px;
+        border-radius: 30px;
+        box-shadow: 0 10px 35px rgba(170,80,120,0.2);
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #d85b91;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        color: #d85b91;
+    }
+
+    p {
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+    .heart {
+        font-size: 55px;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
+    }
+
+    input {
+        width: 80%;
+        padding: 14px;
+        border: 2px solid #f2a9c5;
+        border-radius: 20px;
+        outline: none;
+        text-align: center;
+        font-size: 18px;
+        margin: 15px 0;
+        background: white;
+    }
+
+    button {
+        border: none;
+        padding: 13px 25px;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #ed82ad, #d85b91);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(216,91,145,0.25);
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .birthday {
+        font-size: 28px;
+        color: #d85b91;
+        font-weight: bold;
+        animation: appear 1s ease;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: scale(0.7);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .letter {
+        background: #fff7fb;
+        padding: 22px;
+        border-radius: 20px;
+        margin-top: 20px;
+        text-align: left;
+        border: 1px solid #f4c2d6;
+    }
+
+    .letter p {
+        white-space: pre-line;
+    }
+
+    .error {
+        color: #d9537a;
+        margin-top: 10px;
+    }
+
+    .music {
+        margin-top: 25px;
+    }
+
+    .floating-heart {
+        position: fixed;
+        bottom: -30px;
+        font-size: 20px;
+        animation: floatUp 5s linear forwards;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .sparkle {
+        font-size: 25px;
+        margin: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- หน้าใส่รหัส -->
+    <div id="loginPage">
+
+        <div class="heart">💗</div>
+
+        <h1>For Kanyaphak 🎀</h1>
+
+        <p>
+            มีบางอย่างอยากให้เธอเปิดดู...
+            <br>
+            แต่ก่อนอื่นต้องใส่รหัสลับก่อนนะ 💕
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="ใส่รหัสลับ 💗"
+        >
+
+        <br>
+
+        <button onclick="checkPassword()">
+            เปิดประตูเซอร์ไพรซ์ 🎁
+        </button>
+
+        <div id="error" class="error"></div>
+
+    </div>
+
+
+    <!-- หน้าเซอร์ไพรซ์ -->
+    <div id="surprisePage" class="hidden">
+
+        <div class="sparkle">
+            ✨ 💗 ✨
+        </div>
+
+        <div class="birthday">
+            Happy kanyaphak day kub!🎂💗
+        </div>
+
+        <p>
+            มีข้อความบางอย่างอยากบอกเธอ 💕
+        </p>
+
+        <button onclick="openLetter()">
+            เปิดจดหมาย 💌
+        </button>
+
+
+        <!-- จดหมาย -->
+        <div id="letter" class="letter hidden">
+
+            <h2>💌 ถึง Kanyaphak</h2>
+
+            <p>
+สุขสันต์วันเกิดนะ โตขึ้นอีกปีแล้ว อายุ 19 แล้วเนอะ ก็ขอให้มีความสุขมากๆ สุขภาพร่างกายแข็งแรง ขอให้ได้เกรดดีดี เจอสังคมที่ดี เป็นที่รักของเพื่อนๆ และอาจารย์ ถ้าเหนื่อยก็พัก กินข้าวให้ครบสามมื้อ นอนหลับเต็มอิ่มทุกคืน ขอให้วันเกิดปีนี้เป็นปีที่ดีนะ ดีใจที่ได้เจอครับ
+            </p>
+
+        </div>
+
+
+        <!-- เพลง -->
+        <div class="music">
+
+            <p>🎵 เพลงสำหรับ Kanyaphak 🎵</p>
+
+            <button onclick="playMusic()">
+                🎶 เปิดเพลง
+            </button>
+
+            <p id="musicText"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // รหัสวันแรกที่รู้จักกัน
+    function checkPassword() {
+
+        const password =
+            document.getElementById("password").value;
+
+        if (password === "231124") {
+
+            document
+                .getElementById("loginPage")
+                .classList.add("hidden");
+
+            document
+                .getElementById("surprisePage")
+                .classList.remove("hidden");
+
+            createHearts();
+
+        } else {
+
+            document
+                .getElementById("error")
+                .innerText =
+                "รหัสไม่ถูกน้าา ลองใหม่อีกครั้ง 💗";
+
+        }
+
+    }
+
+
+    // เปิดจดหมาย
+    function openLetter() {
+
+        document
+            .getElementById("letter")
+            .classList.remove("hidden");
+
+        createHearts();
+
+    }
+
+
+    // เอฟเฟกต์หัวใจลอย
+    function createHearts() {
+
+        for (let i = 0; i < 25; i++) {
+
+            setTimeout(() => {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.className =
+                    "floating-heart";
+
+                const hearts = [
+                    "💗",
+                    "💕",
+                    "💖",
+                    "💓",
+                    "🎀",
+                    "✨"
+                ];
+
+                heart.innerText =
+                    hearts[
+                        Math.floor(
+                            Math.random() * hearts.length
+                        )
+                    ];
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+
+            }, i * 100);
+
+        }
+
+    }
+
+
+    // ปุ่มเพลง
+    f
+function playMusic() {
+
+    window.open(
+        "https://youtu.be/Sp0rX7MuXnM?si=HMR0ANIKCyQTUap8",
+        "_blank"
+    );
+
+}
+    }
+
+</script>
+
+</body>
+</html>
