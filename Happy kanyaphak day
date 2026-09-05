@@ -254,32 +254,21 @@
 
     // รหัสวันแรกที่รู้จักกัน
     function checkPassword() {
+    const passwordInput = document.getElementById("password");
+    const errorMessage = document.getElementById("error");
+    const password = passwordInput.value.trim();
 
-        const password =
-            document.getElementById("password").value;
-
-        if (password === "231124") {
-
-            document
-                .getElementById("loginPage")
-                .classList.add("hidden");
-
-            document
-                .getElementById("surprisePage")
-                .classList.remove("hidden");
-
-            createHearts();
-
-        } else {
-
-            document
-                .getElementById("error")
-                .innerText =
-                "รหัสไม่ถูกน้าา ลองใหม่อีกครั้ง 💗";
-
-        }
-
+    if (password === "231124") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("surprisePage").classList.remove("hidden");
+        errorMessage.innerText = "";
+        createHearts();
+    } else {
+        errorMessage.innerText = "รหัสไม่ถูกน้าา ลองใหม่อีกครั้ง 💗";
+        passwordInput.value = "";
+        passwordInput.focus();
     }
+}
 
 
     // เปิดจดหมาย
